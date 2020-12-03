@@ -1,0 +1,50 @@
+server:
+    port: 8080
+    
+spring:
+# General
+    application:
+        name: watercolors-catalogue
+
+# MVC
+    servlet:
+        multipart:
+            maxFileSize: 1000MB
+            maxRequestSize: 1000MB
+    mvc:
+        servlet:
+            path: /catalogue
+
+# Datasource config
+    jpa:
+        properties:
+            hibernate:
+                default_schema: catalogue
+        # hibernate:
+        #     ddl-auto: create-drop 
+                
+    datasource:
+        url: jdbc:postgresql://${DB_SERVER:watercolors-postgres}/${POSTGRES_DB:watercolors}
+        username: ${POSTGRES_USER:dbadmin}
+        password: ${POSTGRES_PASSWORD:watercolors}
+        hikari:
+            max-lifetime: 60000000
+    liquibase:
+        default-schema: catalogue
+        # enabled: false
+
+# File resource config
+images:
+    homePath: ${user.home}/watercolors
+    server: ${SERVER:http://localhost:8080}
+    resizeWidth: 500
+
+# Monitoring
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: "*"

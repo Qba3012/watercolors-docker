@@ -1,0 +1,59 @@
+server:
+    port: 8090
+    
+spring:
+# General
+    application:
+        name: watercolors-mail
+
+# SMTP client
+    mail:
+        host: smtp.mojeakwarele.pl
+        port: 465
+        username: ***
+        password: ***
+        properties:
+            "mail.smtp.ssl.enable": true
+
+# MVC
+    mvc:
+        servlet:
+            path: /mail
+
+# Datasource config
+    jpa:
+        properties:
+            hibernate:
+                default_schema: mail
+    datasource:
+        url: jdbc:postgresql://${DB_SERVER:watercolors-postgres}/${POSTGRES_DB:watercolors}
+        username: ${POSTGRES_USER:dbadmin}
+        password: ${POSTGRES_PASSWORD:watercolors}
+    liquibase:
+        default-schema: mail
+
+# Kubernetes config
+    cloud:
+        kubernetes:
+            discovery:
+                all-namespaces: true
+            
+# Monitoring
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+# Custom
+newsletter:
+    welcome:
+        subject: ${NEWSLETTER_WELCOME_SUBJECT:Witaj w newsletterze Moje Akwarele}
+        template: ${WELCOME_TEMPLATE:welcome}
+    email: newsletter@mojeakwarele.pl
+    host: test@gmail.com
+    home: ${user.home}/watercolors
+    server: ${SERVER:http://localhost:8090}

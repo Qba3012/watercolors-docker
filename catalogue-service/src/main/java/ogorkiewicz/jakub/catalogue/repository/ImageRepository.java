@@ -1,0 +1,24 @@
+package ogorkiewicz.jakub.catalogue.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import ogorkiewicz.jakub.catalogue.model.Image;
+
+
+@Repository
+public interface ImageRepository extends CrudRepository<Image, Long> {
+
+    public Optional<Image> findByFileNameAndPaintingId(String fileName, Long paintingId);
+
+    public Optional<Image> findBySmallFileNameAndPaintingId(String fileName, Long paintingId);
+
+    public List<Image> findByPaintingId(Long paintingId);
+
+    public void deleteByPaintingId(Long paintingId);
+
+
+}

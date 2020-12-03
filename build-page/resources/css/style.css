@@ -1,0 +1,74 @@
+/* ---------------------------------------*/
+/* GENERAL SETUP */
+/* ---------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #ece8e8;
+    font-family: 'Parisienne', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(39, 39, 39);
+    text-rendering: optimizeLegibility;
+}
+
+/* ---------------------------------------*/
+/* MAIN SECTION */
+/* ---------------------------------------*/
+
+.main {
+    position: absolute;
+    width: 60%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-size: 500%;
+    font-weight: 200;
+    font-family: Parisienne;
+}
+
+h2 {
+    font-family: Open Sans;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+ion-icon {
+    margin-top: 40px;
+    font-size: 300%;
+    color: rgb(39, 39, 39);
+    transition: color 0.2s;
+}
+
+ion-icon:active,
+ion-icon:hover {
+    color: rgb(117, 103, 103);
+}
+
+.logo {
+    width: 35%;
+    height: auto;
+    margin: 50px auto;
+    border-radius: 50%;
+    box-shadow: 0px 0px 30px #000;
+}
+
+.logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: brightness(150%);
+    border-radius: 50%;
+}

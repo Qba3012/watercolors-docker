@@ -1,0 +1,161 @@
+databaseChangeLog:
+- changeSet:
+    id: 1605967537672-1
+    author: Jakub (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: imagePK
+            name: id
+            type: BIGINT
+        - column:
+            name: create_date_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: file_name
+            type: VARCHAR(255)
+        - column:
+            name: local_uri
+            type: BYTEA
+        - column:
+            name: small_file_name
+            type: VARCHAR(255)
+        - column:
+            name: small_local_uri
+            type: BYTEA
+        - column:
+            name: small_url
+            type: VARCHAR(255)
+        - column:
+            name: url
+            type: VARCHAR(255)
+        - column:
+            name: painting_id
+            type: BIGINT
+        tableName: image
+- changeSet:
+    id: 1605967537672-2
+    author: Jakub (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: paintingPK
+            name: id
+            type: BIGINT
+        - column:
+            name: availability
+            type: INTEGER
+        - column:
+            name: category
+            type: VARCHAR(255)
+        - column:
+            name: collection
+            type: VARCHAR(255)
+        - column:
+            name: create_date_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: height
+            type: INTEGER
+        - column:
+            name: price
+            type: FLOAT8
+        - column:
+            name: title
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: width
+            type: INTEGER
+        tableName: painting
+- changeSet:
+    id: 1605967537672-3
+    author: Jakub (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: painting_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: tag_id
+            type: BIGINT
+        tableName: paintings_tags
+- changeSet:
+    id: 1605967537672-4
+    author: Jakub (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tagPK
+            name: id
+            type: BIGINT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        tableName: tag
+- changeSet:
+    id: 1605967537672-5
+    author: Jakub (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: painting_id
+        baseTableName: paintings_tags
+        constraintName: FKbq4qrdq9c2dc9b3xoi3yv9n4v
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: painting
+        validate: true
+- changeSet:
+    id: 1605967537672-6
+    author: Jakub (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tag_id
+        baseTableName: paintings_tags
+        constraintName: FKlrmmgt8n76xgdhtqbsuxhvhtt
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: tag
+        validate: true
+- changeSet:
+    id: 1605967537672-7
+    author: Jakub (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: painting_id
+        baseTableName: image
+        constraintName: FKm94t618947dj71c3kqvojg8gw
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: painting
+        validate: true
+

@@ -1,0 +1,4 @@
+FROM nginx
+COPY ./build-page /usr/share/nginx/html
+
+EXPOSE 80
