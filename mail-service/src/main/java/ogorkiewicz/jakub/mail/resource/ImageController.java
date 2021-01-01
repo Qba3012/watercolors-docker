@@ -2,10 +2,10 @@ package ogorkiewicz.jakub.mail.resource;
 
 import static ogorkiewicz.jakub.mail.resource.ImageController.IMAGE_PATH;
 import static ogorkiewicz.jakub.mail.resource.NewsletterController.NEWSLETTER_PATH;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_OCTET_STREAM_VALUE;
 import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
-import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 import java.io.InputStream;
 import java.util.List;

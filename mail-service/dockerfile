@@ -1,7 +1,5 @@
 FROM adoptopenjdk/maven-openjdk11 
-COPY ./mail-service /usr/src/app/mail-service
+COPY . /usr/src/app/mail-service
 RUN mvn -f /usr/src/app/mail-service/pom.xml clean package
-
-EXPOSE 8090
 
 ENTRYPOINT  java -jar /usr/src/app/mail-service/target/*.jar

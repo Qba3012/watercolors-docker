@@ -105,7 +105,7 @@ public class TemplateController {
     /**
      * DELETE - remove email from newsletter
      */
-     
+
     @ApiOperation(value = "Remove template")
     @DeleteMapping
     public ResponseEntity<?> removeTemplate(@RequestParam String name) {

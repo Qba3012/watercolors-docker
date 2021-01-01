@@ -10,13 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestBody;
 import lombok.AllArgsConstructor;
 import ogorkiewicz.jakub.mail.dto.NewsletterDataDto;
 import ogorkiewicz.jakub.mail.model.Subscriber;
@@ -35,7 +35,7 @@ public class NewsletterController {
     /**
      * POST - add new address to newsletter
      */
-     
+
     @ApiOperation(value = "Add new email to newsletter")
     @PostMapping("/join")
     public ResponseEntity<?> addNewEmail(@RequestParam String email) {
@@ -46,7 +46,7 @@ public class NewsletterController {
     /**
      * POST - send email to subscribers
      */
-     
+
     @ApiOperation(value = "Send email to subscribers")
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<?> sendEmailToSubscribers(@RequestBody NewsletterDataDto newsletterData) {
@@ -68,7 +68,7 @@ public class NewsletterController {
     /**
      * DELETE - remove email from newsletter by id
      */
-     
+    
     @ApiOperation(value = "Remove email from newsletter by id")
     @DeleteMapping
     public ResponseEntity<?> removeEmailById(@RequestParam("id") Long id) {

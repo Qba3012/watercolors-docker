@@ -50,7 +50,7 @@ public class NewsletterService {
 	public void deleteEmailById(Long id) {
         Optional<Subscriber> newsletterOptional = newsletterRepository.findById(id);
         if(newsletterOptional.isPresent()) {
-            long subscribers = newsletterRepository.count();
+            long subscribers = newsletterRepository.count() - 1;
             mailService.sendNewsletterNotificaiton(newsletterOptional.get().getEmail(), subscribers, false);
             newsletterRepository.deleteById(id);
         }

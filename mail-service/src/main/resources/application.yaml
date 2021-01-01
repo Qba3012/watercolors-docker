@@ -1,5 +1,13 @@
 server:
-    port: 8090
+    port: 8010
+
+# Security
+keycloak:
+    realm: watercolors
+    auth-server-url: ***
+    ssl-required: external
+    resource: watercolors-backend
+    bearer-only: true
     
 spring:
 # General

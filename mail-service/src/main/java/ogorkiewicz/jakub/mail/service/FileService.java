@@ -39,7 +39,7 @@ public class FileService {
         return null;
     }
 
-    public boolean deleteFile(Path filePath) {
+    public void deleteFile(Path filePath) {
         try{
             if (Files.isDirectory(filePath, LinkOption.NOFOLLOW_LINKS)) {
                 try (DirectoryStream<Path> entries = Files.newDirectoryStream(filePath)) {
@@ -51,10 +51,7 @@ public class FileService {
             Files.deleteIfExists(filePath);
         }catch (IOException e){
             log.error("Unable to delete file or directory. " + e.getMessage());
-            return false;
         }
-        return true;
-
     }
 
     public InputStream readFile(URI localUri){
